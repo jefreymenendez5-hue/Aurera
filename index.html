@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f5f7f2">
+    <title>Áurea | Billetera y espacios</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles.css">
+    <script src="/app.js" defer></script>
+  </head>
+  <body>
+    <main class="login-screen" id="login-screen">
+      <section class="login-card" aria-labelledby="login-title">
+        <a class="brand login-brand" href="/" aria-label="Áurea, inicio">
+          <span class="brand-mark" aria-hidden="true">á.</span>
+          <span class="brand-name">áurea<span>.</span></span>
+        </a>
+        <p class="eyebrow"><span class="eyebrow-line"></span>BIENVENIDO DE NUEVO</p>
+        <h1 id="login-title">Hola, <em>Jeffrey Diddy.</em></h1>
+        <p class="login-description">Inicia sesión para continuar a tu billetera y espacio de trabajo.</p>
+        <form id="login-form" class="login-form">
+          <label class="field" for="login-email">Correo electrónico<input id="login-email" name="correo" type="email" value="jefreymenendez5@gmail.com" autocomplete="username" required></label>
+          <label class="field" for="login-password">Contraseña<input id="login-password" name="password" type="password" autocomplete="current-password" required></label>
+          <p class="form-error" id="login-error" role="alert" hidden></p>
+          <button class="button button-primary login-submit" type="submit">Iniciar sesión <span aria-hidden="true">→</span></button>
+        </form>
+        <p class="login-note">Acceso privado · No es necesario crear una cuenta</p>
+      </section>
+      <aside class="login-art" aria-hidden="true">
+        <span class="login-orbit login-orbit-one"></span><span class="login-orbit login-orbit-two"></span>
+        <div class="login-art-copy"><span>ÁUREA · TU ESPACIO</span><strong>Con calma.<br>Con intención.</strong><i>Á</i></div>
+        <span class="login-spark">✳</span>
+      </aside>
+    </main>
+    <div class="app-shell" id="app-shell" hidden>
+      <aside class="sidebar" aria-label="Navegación principal">
+        <a class="brand" href="#billetera" aria-label="Áurea, inicio">
+          <span class="brand-mark" aria-hidden="true">á.</span>
+          <span class="brand-name">áurea<span>.</span></span>
+        </a>
+        <div class="side-caption">ESPACIO DE TRABAJO</div>
+        <nav class="navigation" aria-label="Secciones">
+          <button class="nav-link is-active" data-view="billetera"><span class="nav-symbol">◉</span>Billetera</button>
+          <button class="nav-link" data-view="resumen"><span class="nav-symbol">◫</span>Resumen</button>
+          <button class="nav-link" data-view="reservas"><span class="nav-symbol">▦</span>Reservas</button>
+          <button class="nav-link" data-view="prestamos"><span class="nav-symbol">⇄</span>Préstamos</button>
+          <button class="nav-link" data-view="movimientos"><span class="nav-symbol">≋</span>Movimientos</button>
+        </nav>
+        <div class="sidebar-bottom">
+          <div class="sidebar-note"><span class="online-dot"></span><span>Tu espacio, protegido</span></div>
+          <div class="sidebar-version">BILLETERA DE PRUEBA <span>·</span> 01</div>
+        </div>
+      </aside>
+
+      <main class="main-content">
+        <header class="topbar">
+          <div class="breadcrumbs"><span>Áurea</span><span class="crumb-divider">/</span><strong id="breadcrumb-current">Billetera</strong></div>
+          <div class="topbar-actions">
+            <span class="identity-name" id="user-name"></span>
+            <span class="avatar" id="user-avatar">M</span>
+            <button class="button button-secondary logout-button" id="logout-button" type="button">Salir</button>
+          </div>
+        </header>
+
+        <div class="page-content">
+          <section class="view is-visible" id="view-billetera" aria-labelledby="wallet-title">
+            <div class="page-heading">
+              <div><p class="eyebrow"><span class="eyebrow-line"></span>TU DINERO, A TU RITMO</p><h1 id="wallet-title">Hola, <em id="wallet-greeting">bienvenida.</em></h1><p class="page-description">Un espacio sencillo para mover tu saldo de prueba.</p></div>
+            </div>
+            <section class="wallet-card" aria-label="Saldo de demostración">
+              <div class="wallet-card-copy"><span>DISPONIBLE EN TU BILLETERA</span><strong id="wallet-balance">$0.00</strong><small>Saldo de demostración · No es dinero real</small></div>
+              <span class="wallet-card-mark" aria-hidden="true">á.</span>
+              <span class="wallet-card-decoration"></span>
+            </section>
+            <div class="wallet-actions-grid">
+              <form id="deposit-form" class="wallet-action-card">
+                <p class="eyebrow"><span class="eyebrow-line"></span>RECARGA DE PRUEBA</p><h2>Añadir saldo ficticio</h2><p>Solo para probar el recorrido de la billetera.</p>
+                <label class="field" for="deposit-amount">Importe<input id="deposit-amount" name="importe" type="number" min="0.01" max="10000" step="0.01" placeholder="25.00" required></label>
+                <p class="form-error" id="deposit-error" role="alert" hidden></p>
+                <button class="button button-primary" type="submit">Añadir a mi saldo <span aria-hidden="true">→</span></button>
+              </form>
+              <form id="transfer-form" class="wallet-action-card">
+                <p class="eyebrow"><span class="eyebrow-line"></span>ENVÍA SALDO</p><h2>Haz una transferencia</h2><p>Envía saldo de prueba a otra cuenta registrada.</p>
+                <label class="field" for="transfer-email">Correo del destinatario<input id="transfer-email" name="correo" type="email" autocomplete="off" required></label>
+                <label class="field" for="transfer-amount">Importe<input id="transfer-amount" name="importe" type="number" min="0.01" max="10000" step="0.01" placeholder="10.00" required></label>
+                <p class="form-error" id="transfer-error" role="alert" hidden></p>
+                <button class="button button-primary" type="submit">Enviar saldo <span aria-hidden="true">→</span></button>
+              </form>
+            </div>
+            <section class="wallet-history">
+              <div class="section-heading"><div><h2>Actividad reciente</h2><p>El historial de tu billetera.</p></div></div>
+              <div class="table-wrap"><table><thead><tr><th>OPERACIÓN</th><th>PERSONA</th><th>FECHA</th><th>IMPORTE</th></tr></thead><tbody id="wallet-transactions"></tbody></table></div>
+              <div class="empty-state" id="wallet-empty" hidden><span class="empty-mark">á.</span><p>Tu actividad aparecerá aquí.</p></div>
+            </section>
+          </section>
+          <section class="view is-visible" id="view-resumen" aria-labelledby="page-title">
+            <div class="page-heading">
+              <div>
+                <p class="eyebrow"><span class="eyebrow-line"></span>VISTA GENERAL</p>
+                <h1 id="page-title">Todo en <em>su sitio.</em></h1>
+                <p class="page-description">El estado del mobiliario, de un vistazo.</p>
+              </div>
+              <button class="button button-primary" data-open-reservation>+ <span>Nueva reserva</span></button>
+            </div>
+
+            <section class="inventory-section" aria-labelledby="inventory-heading">
+              <div class="section-heading">
+                <div><h2 id="inventory-heading">Inventario</h2><p>Disponibilidad actual de recursos</p></div>
+                <span class="live-label"><span class="live-dot"></span>EN TIEMPO REAL</span>
+              </div>
+              <div class="inventory-grid" id="inventory-grid" aria-live="polite"></div>
+            </section>
+
+            <section class="metric-grid" id="metric-grid" aria-label="Resumen de operaciones"></section>
+
+            <section class="recent-section">
+              <div class="section-heading">
+                <div><h2>Reservas recientes</h2><p>Solicitudes y próximas entregas</p></div>
+                <button class="text-action" data-view-link="reservas">Ver todas <span aria-hidden="true">→</span></button>
+              </div>
+              <div class="table-wrap"><table><thead><tr><th>PERSONA</th><th>FECHA</th><th>RECURSOS</th><th>ESTADO</th><th></th></tr></thead><tbody id="recent-reservations"></tbody></table></div>
+              <div class="empty-state" id="recent-empty" hidden><span class="empty-mark">01</span><p>Aún no hay reservas. La primera empieza aquí.</p><button class="text-action" data-open-reservation>Crear reserva <span aria-hidden="true">→</span></button></div>
+            </section>
+          </section>
+
+          <section class="view" id="view-reservas" aria-labelledby="reservations-title" hidden>
+            <div class="page-heading compact-heading"><div><p class="eyebrow"><span class="eyebrow-line"></span>PLANIFICACIÓN</p><h1 id="reservations-title">Reservas</h1><p class="page-description">Solicitudes y asignaciones de mobiliario.</p></div><button class="button button-primary" data-open-reservation>+ <span>Nueva reserva</span></button></div>
+            <div class="section-heading table-heading"><div><h2>Todas las reservas</h2><p>Los recursos se apartan al recibir la solicitud.</p></div><span class="count-label" id="reservation-count">0 solicitudes</span></div>
+            <div class="table-wrap"><table><thead><tr><th>PERSONA</th><th>FECHA</th><th>HORARIO</th><th>RECURSOS</th><th>ESTADO</th><th>ACCIONES</th></tr></thead><tbody id="reservations-table"></tbody></table></div>
+            <div class="empty-state" id="reservations-empty" hidden><span class="empty-mark">02</span><p>No hay reservas en esta vista todavía.</p><button class="button button-secondary" data-open-reservation>Crear una reserva</button></div>
+          </section>
+
+          <section class="view" id="view-prestamos" aria-labelledby="loans-title" hidden>
+            <div class="page-heading compact-heading"><div><p class="eyebrow"><span class="eyebrow-line"></span>ENTREGA Y RETORNO</p><h1 id="loans-title">Préstamos</h1><p class="page-description">Seguimiento de entregas y devoluciones.</p></div><button class="button button-primary admin-only" data-open-loan>+ <span>Registrar préstamo</span></button></div>
+            <div class="section-heading table-heading"><div><h2>Préstamos en curso</h2><p>El saldo pendiente se actualiza con cada devolución.</p></div><span class="count-label" id="loan-count">0 préstamos</span></div>
+            <div class="table-wrap"><table><thead><tr><th>RESPONSABLE</th><th>PRÉSTAMO</th><th>DEVOLUCIÓN PREVISTA</th><th>PENDIENTE</th><th>ESTADO</th><th>ACCIONES</th></tr></thead><tbody id="loans-table"></tbody></table></div>
+            <div class="empty-state" id="loans-empty" hidden><span class="empty-mark">03</span><p>Los préstamos aparecerán aquí al registrar una entrega.</p></div>
+          </section>
+
+          <section class="view" id="view-movimientos" aria-labelledby="history-title" hidden>
+            <div class="page-heading compact-heading"><div><p class="eyebrow"><span class="eyebrow-line"></span>TRAZABILIDAD</p><h1 id="history-title">Movimientos</h1><p class="page-description">Cada cambio de inventario, con fecha y responsable.</p></div></div>
+            <div class="section-heading table-heading"><div><h2>Historial de operaciones</h2><p>Registro cronológico de reservas, entregas y devoluciones.</p></div></div>
+            <div class="table-wrap"><table><thead><tr><th>OPERACIÓN</th><th>REALIZADA POR</th><th>RECURSOS</th><th>CAMBIO DE ESTADO</th><th>FECHA Y HORA</th></tr></thead><tbody id="history-table"></tbody></table></div>
+            <div class="empty-state" id="history-empty" hidden><span class="empty-mark">04</span><p>Aún no hay movimientos registrados.</p></div>
+          </section>
+          <footer class="page-footer"><span>ÁUREA · BILLETERA DE DEMOSTRACIÓN</span><span>Las transferencias usan únicamente saldo ficticio.</span></footer>
+        </div>
+      </main>
+    </div>
+
+    <dialog class="modal" id="reservation-dialog">
+      <form id="reservation-form" class="modal-form">
+        <div class="modal-heading"><div><p class="eyebrow"><span class="eyebrow-line"></span>NUEVA SOLICITUD</p><h2>Reservar mobiliario</h2></div><button class="icon-button" type="button" data-close-dialog aria-label="Cerrar">×</button></div>
+        <p class="modal-description">La disponibilidad se comprobará al confirmar esta solicitud.</p>
+        <label class="field admin-only" for="reservation-user">Responsable<input id="reservation-user" name="usuarioNombre" list="reservation-user-list" placeholder="Escribe el nombre del responsable" autocomplete="off"></label>
+        <datalist id="reservation-user-list"></datalist>
+        <div class="quantity-fields"><label class="field" for="reservation-tables">Mesas<span class="available-hint" id="tables-available"></span><input id="reservation-tables" name="mesas" type="number" min="0" step="1" value="0" required></label><label class="field" for="reservation-chairs">Sillas<span class="available-hint" id="chairs-available"></span><input id="reservation-chairs" name="sillas" type="number" min="0" step="1" value="0" required></label></div>
+        <label class="field" for="reservation-date">Fecha de reserva<input id="reservation-date" name="fecha" type="date" required></label>
+        <div class="quantity-fields"><label class="field" for="reservation-start">Hora de inicio <span class="optional">OPCIONAL</span><input id="reservation-start" name="horaInicio" type="time"></label><label class="field" for="reservation-end">Hora de fin <span class="optional">OPCIONAL</span><input id="reservation-end" name="horaFin" type="time"></label></div>
+        <p class="form-error" id="reservation-error" role="alert" hidden></p>
+        <div class="modal-actions"><button class="button button-secondary" type="button" data-close-dialog>Volver</button><button class="button button-primary" type="submit">Crear reserva <span aria-hidden="true">→</span></button></div>
+      </form>
+    </dialog>
+
+    <dialog class="modal" id="loan-dialog">
+      <form id="loan-form" class="modal-form">
+        <div class="modal-heading"><div><p class="eyebrow"><span class="eyebrow-line"></span>NUEVA ENTREGA</p><h2>Registrar préstamo</h2></div><button class="icon-button" type="button" data-close-dialog aria-label="Cerrar">×</button></div>
+        <p class="modal-description">Solo se pueden entregar unidades disponibles.</p>
+        <label class="field" for="loan-user">Responsable<input id="loan-user" name="usuarioNombre" list="loan-user-list" placeholder="Escribe el nombre del responsable" autocomplete="off" required></label>
+        <datalist id="loan-user-list"></datalist>
+        <div class="quantity-fields"><label class="field" for="loan-tables">Mesas<span class="available-hint" id="loan-tables-available"></span><input id="loan-tables" name="mesas" type="number" min="0" step="1" value="0" required></label><label class="field" for="loan-chairs">Sillas<span class="available-hint" id="loan-chairs-available"></span><input id="loan-chairs" name="sillas" type="number" min="0" step="1" value="0" required></label></div>
+        <div class="quantity-fields"><label class="field" for="loan-date">Fecha de préstamo<input id="loan-date" name="fechaPrestamo" type="date" required></label><label class="field" for="loan-due">Devolución prevista<input id="loan-due" name="fechaPrevistaDevolucion" type="date" required></label></div>
+        <label class="field" for="loan-notes">Observaciones <span class="optional">OPCIONAL</span><textarea id="loan-notes" name="observaciones" rows="2" placeholder="Detalles sobre la entrega"></textarea></label>
+        <p class="form-error" id="loan-error" role="alert" hidden></p>
+        <div class="modal-actions"><button class="button button-secondary" type="button" data-close-dialog>Volver</button><button class="button button-primary" type="submit">Confirmar entrega <span aria-hidden="true">→</span></button></div>
+      </form>
+    </dialog>
+
+    <dialog class="modal" id="return-dialog">
+      <form id="return-form" class="modal-form">
+        <div class="modal-heading"><div><p class="eyebrow"><span class="eyebrow-line"></span>REGISTRAR RETORNO</p><h2>Devolver recursos</h2></div><button class="icon-button" type="button" data-close-dialog aria-label="Cerrar">×</button></div>
+        <p class="modal-description" id="return-description"></p>
+        <div class="quantity-fields"><label class="field" for="return-tables">Mesas<span class="available-hint" id="return-tables-pending"></span><input id="return-tables" name="mesas" type="number" min="0" step="1" value="0" required></label><label class="field" for="return-chairs">Sillas<span class="available-hint" id="return-chairs-pending"></span><input id="return-chairs" name="sillas" type="number" min="0" step="1" value="0" required></label></div>
+        <label class="field" for="return-notes">Observaciones <span class="optional">OPCIONAL</span><textarea id="return-notes" name="observaciones" rows="2" placeholder="Estado de los recursos devueltos"></textarea></label>
+        <p class="form-error" id="return-error" role="alert" hidden></p>
+        <div class="modal-actions"><button class="button button-secondary" type="button" data-close-dialog>Volver</button><button class="button button-primary" type="submit">Registrar devolución <span aria-hidden="true">→</span></button></div>
+      </form>
+    </dialog>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  </body>
+</html>
