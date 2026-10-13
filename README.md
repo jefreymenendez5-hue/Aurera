@@ -6,9 +6,10 @@ La cuenta de acceso es Jeffrey Diddy (`jefreymenendez5@gmail.com`). La contrase�
 
 ## Ejecutar
 
-Requiere Node.js 20 o superior. No necesita dependencias externas.
+Requiere Node.js 20 o superior.
 
 ```bash
+npm install
 npm start
 ```
 
@@ -40,12 +41,14 @@ Las páginas API requieren la cookie de sesión. La contraseña del usuario se a
 - `PATCH /api/inventory/:resourceId`
 - `GET /api/history`, `GET /api/users`
 
-La API opera como el perfil administrador de demostración después de iniciar sesión. Las escrituras se serializan y los cambios de saldo se persisten en un reemplazo atómico del archivo JSON. Los saldos de mobiliario se derivan de los registros operativos.
+La API opera como el perfil administrador de demostración después de iniciar sesión. En local, las escrituras se serializan y se guardan en un reemplazo atómico del archivo JSON. En Vercel, el estado se guarda en PostgreSQL y cada escritura usa una transacción con bloqueo de fila.
 
 ## Alcance de despliegue
 
 El saldo añadido desde la interfaz es dinero ficticio, no un depósito ni un cobro. Para aceptar dinero real se debe integrar y configurar un proveedor de pagos; esta aplicación no solicita ni guarda datos de tarjetas.
 
-El archivo JSON está pensado para desarrollo local con una sola instancia del servidor. Para producción, migrar a una base de datos transaccional e integrar un proveedor de pagos real si fuese necesario.
+El archivo JSON está pensado para desarrollo local. En Vercel, conecta una base de datos PostgreSQL de Neon al proyecto y configura `DATABASE_URL` o `POSTGRES_URL` en el entorno de Production. La aplicación crea su tabla e inicializa los datos de demostración en la primera solicitud. Sin esa variable, las rutas API informan un error en Vercel en vez de guardar datos en el sistema de archivos efímero.
+
+Para configurar Neon, abre el proyecto en Vercel, conecta una base PostgreSQL desde **Storage** / la integración de Neon y habilita la variable de conexión en el entorno **Production**. Después, vuelve a desplegar. No guardes la cadena de conexión en Git ni la compartas por chat.
 
 La arquitectura, el modelo de datos, el flujo de estados, las reglas y las rutas se describen en [ARCHITECTURE.md](ARCHITECTURE.md).
